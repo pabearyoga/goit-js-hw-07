@@ -31,8 +31,17 @@ function selectOriginalImg(event) {
   const selectLargeImg = event.target.dataset.source;
 
   const instance = basicLightbox.create(`
-     <img src='${selectLargeImg}'> 
+     <img src='${selectLargeImg}'>
     `);
 
   instance.show();
+
+  gallery.addEventListener("keydown", closeESC);
+
+  function closeESC(event) {
+    event.preventDefault();
+    if (event.code === "Escape") {
+      instance.close();
+    }
+  }
 }
