@@ -37,11 +37,11 @@ function selectOriginalImg(event) {
   instance.show();
 
   gallery.addEventListener("keydown", closeESC);
-
   function closeESC(event) {
     event.preventDefault();
     if (event.code === "Escape") {
       instance.close();
+      gallery.removeEventListener("keydown", closeESC);
     }
   }
 }
